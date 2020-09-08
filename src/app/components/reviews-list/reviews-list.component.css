@@ -1,0 +1,17 @@
+.review-box {
+    box-shadow: 1px 3px 6px 3px #999999;
+    margin: 3em 0;
+    padding: 2em;
+}
+.review-date {
+    font-size: 12px;
+    color: #777777;
+}
+.visit-website a:link, .visit-website a:visited, .visit-website a:active {
+    font-size: 13px;
+    color: #777777;
+    text-decoration: none;
+}
+.visit-website a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,29 @@
+<!-- Header for Sign up -->
+<header class="mb-4">
+    <h2>Sign up</h2>
+</header>
+
+<!-- Form using the special method that sends all values in one object onSubmit -->
+<form #register="ngForm" (submit)="onSubmit(register)">
+
+    <!-- Username -->
+    <div class="row my-2">
+        <label class="col-2 text-right">Username</label>
+        <input class="col-10" type="text" name="username" placeholder="Username" ngModel>
+    </div>
+
+    <!-- Password -->
+    <div class="row my-2">
+        <label class="col-2 text-right">Password</label>
+        <input class="col-10" type="password" name="password" placeholder="Password" ngModel>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="mt-2 offset-2 col-10">Sign Up</button>
+
+</form>
+
+<!-- If form has null values this message should show -->
+<div *ngIf="hasNullValues" class="mt-4 text-center">
+    <p><b>Please fill out all of the fields.</b></p>
+</div>

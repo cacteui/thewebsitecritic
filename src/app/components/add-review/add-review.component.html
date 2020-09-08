@@ -1,0 +1,48 @@
+<!-- Boolean that says not to show content before hasData variable is true -->
+<div *ngIf="hasData">
+
+    <!-- Header for Add Review Form  -->
+    <header class="py-4">
+        <h1>Add Review for {{getWebsite().domain}}</h1>
+        <p>What was your experience on the website, when you used it? Was it userfriendly? Is the concept good?
+           Did something really annoy you? Tell us!</p>
+    </header>
+
+    <!-- Form using the special method that sends all values in one object onSubmit -->
+    <form #addReviewForm="ngForm" (submit)="onSubmit(addReviewForm)">
+
+        <!-- Title -->
+        <div class="row my-2">
+            <label class="col-2 text-right">Title</label>
+            <input class="col-10" type="text" name="title" placeholder="Title" ngModel>
+        </div>
+
+        <!-- Review -->
+        <div class="row my-2">
+            <label class="col-2 text-right">Review</label>
+            <textarea class="col-10" cols="10" name="review" ngModel></textarea>
+        </div>
+
+        <!-- Selecting between 1 to 5 with select input -->
+        <div class="row my-2">
+            <label class="col-2 text-right">Score</label>
+            <select class="col-10" [(ngModel)]="selectedValue" name="score" id="score">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="mt-2 offset-2 col-10">Add Review</button>
+
+    </form>
+
+    <!-- If form has null values this message should show -->
+    <div *ngIf="hasNullValues" class="mt-4 text-center">
+        <p><b>Please fill out all the fields.</b></p>
+    </div>
+
+</div><!-- End hasData -->

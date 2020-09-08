@@ -1,0 +1,35 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+
+    <!-- The Brand (logo) -->
+    <a class="navbar-brand" routerLink="/">The Website Critic</a>
+
+    <!-- The menu on the right -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+            <a routerLink="/">Home</a>
+        </li>
+        <li class="nav-item active">
+            <a routerLink="/websites">Websites</a>
+        </li>
+        <li class="nav-item">
+            <!-- If user is logged in, show logout, otherwise, show login -->
+            <a *ngIf="auth.IsLoggedIn(); else elseNotLoggedIn" (click)="logout()" class="text-white" style="cursor: pointer">Logout</a>
+            <ng-template #elseNotLoggedIn>
+                <a routerLink="/login-register">Login</a>
+            </ng-template>
+        </li>
+    </ul>
+</nav>
+
+<!-- Main content -->
+<main>
+    <article>
+        <router-outlet></router-outlet>
+    </article>
+</main>
+
+<!-- Footer -->
+<footer class="mt-5 p-3 bg-dark">
+    <p class="text-light text-center m-0">The Website Critic &copy; {{ getCurrentYear() }}</p>
+</footer>

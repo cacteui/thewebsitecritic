@@ -1,0 +1,17 @@
+<!-- Boolean that says not to show content before hasData variable is true -->
+<div *ngIf="hasData">
+
+    <!-- Header for home -->
+    <header>
+        <h1 class="mt-3 text-center">The Website Critic</h1>
+        <p class="text-center mb-3"><b>Critical everyday</b></p>
+        <p>Do you know the feeling when you click into a website that is just wonderful to be in? Everything works as it should.
+       It is easy to navigate and just generally it's nice. Do you know that feeling? Do you also know that feeling when it is
+       the complete opposite? And have you always wanted to share your feelings with other people. Enter The Website Critic.
+       Your specific website to review other websites. Get going!</p>
+    </header>
+
+    <!-- Child component including the review list -->
+    <app-reviews-list [homeParent]="homeParent"></app-reviews-list>
+
+</div> <!-- End of hasData -->

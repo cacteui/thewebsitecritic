@@ -1,0 +1,11 @@
+h1 {
+    margin: 0.5em 0;
+}
+.visit-website a:link, .visit-website a:visited, .visit-website a:active {
+    font-size: 13px;
+    color: #777777;
+    text-decoration: none;
+}
+.visit-website a:hover {
+    text-decoration: underline;
+}

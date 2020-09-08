@@ -1,0 +1,25 @@
+{
+  "name": "frameworks_template",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.4.0",
+    "mongodb": "^3.1.10",
+    "morgan": "^1.9.1",
+    "socket.io": "^2.2.0"
+  },
+  "description": "Small template for developing an express.js/angular 2+ application",
+  "engines": {
+    "node": "10.8.0",
+    "npm": "6.4.1"
+  }
+}

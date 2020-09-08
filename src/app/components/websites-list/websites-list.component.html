@@ -1,0 +1,12 @@
+<!-- Boolean that says not to show content before hasData variable is true -->
+<div *ngIf="hasData">
+
+    <!-- Looping through the websites -->
+    <div *ngFor="let website of getWebsites()" class="bg-white p-4 my-5 website-box">
+        <h3><a routerLink="/websites/{{ website._id }}">{{ website.domain }}</a></h3>
+
+        <!-- Cutting off the text of the question after 200 characters -->
+        <p>{{ (website.description.length > 200) ? (website.description | slice: 0: 200) + '...' : (website.description)}}</p>
+    </div>
+
+</div><!-- End of hasData -->

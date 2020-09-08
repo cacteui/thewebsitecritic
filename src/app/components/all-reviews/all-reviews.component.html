@@ -1,0 +1,12 @@
+<!-- Boolean that says not to show content before hasData variable is true -->
+<div *ngIf="hasData">
+
+    <!-- Header for the all reviews page through child component -->
+    <app-header [wantHeadingOne]="true" [headline]="headline" [wantParagraph]="true" [paragraph]="paragraph"></app-header>
+
+    <!-- Using child component to show list of reviews -->
+    <div>
+        <app-reviews-list [allReviews]="allReviews"></app-reviews-list>
+    </div>
+
+</div> <!-- End of hasData -->

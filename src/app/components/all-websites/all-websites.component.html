@@ -1,0 +1,16 @@
+<!-- Boolean that says not to show content before hasData variable is true -->
+<div *ngIf="hasData">
+
+    <!-- Header for the websites page through child components -->
+    <app-header [wantHeadingOne]="true" [headline]="headline" [wantParagraph]="true" [paragraph]="paragraph"></app-header>
+    <a href="websites#add">Add a new website here</a>
+
+    <!-- All websites as a list of domain names -->
+    <app-websites-list></app-websites-list>
+
+    <!-- Add a website -->
+    <div id="add">
+        <app-add-website></app-add-website>
+    </div>
+
+</div> <!-- End of hasData -->

@@ -1,0 +1,30 @@
+<!-- Boolean that says not to show content before hasData variable is true -->
+<div *ngIf="hasData">
+
+    <!-- Information about the website - domain, description and averageScore-->
+    <div>
+        <h1>
+            {{ getWebsite().domain }}
+            <span class="visit-website"><a href="http://{{ getWebsite().domain }}" target="_blank" class="visit-website ml-2">Visit the website</a></span>
+        </h1>
+        <p> {{ getWebsite().description }}</p>
+
+        <!-- ngIf checking if there are any reviews - if yes, then average score is shown,
+             if no, an ng-template with a "not rated yet" text shows -->
+        <p *ngIf="hasReviews; else noReviews"><b>Average score: </b> {{ getAverageScore(websiteId) }} out of 5</p>
+        <ng-template #noReviews><p><b>Average score:</b> Not rated yet</p></ng-template>
+    </div>
+
+    <!-- Add review link -->
+    <div class="mb-4 bg-white p-4">
+        <h3>Add a review</h3>
+        <p>Have something to point out about {{ getWebsite().domain }}, both good or not so good?</p>
+        <a [routerLink]="['add-review', {id: getId()}]">Add your review</a>
+    </div>
+
+    <!-- Adding the review list through child component -->
+    <div>
+        <app-reviews-list [websiteId]="getId()"></app-reviews-list>
+    </div>
+
+</div> <!-- End of hasData -->

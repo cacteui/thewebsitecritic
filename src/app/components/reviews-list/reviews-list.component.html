@@ -1,0 +1,66 @@
+<!-- Header for the websites page through child component -->
+<div *ngIf="allReviews != 1">
+    <div *ngIf="websiteId == undefined; else reviewList">
+        <app-header [wantHeadingTwo]="true" [headline]="headlineRecent" [wantParagraph]="true" [paragraph]="paragraph"></app-header>
+    </div>
+    <ng-template #reviewList>
+        <app-header [wantHeadingTwo]="true" [headline]="headlineWebsite" [wantParagraph]="true" [paragraph]="paragraph"></app-header>
+    </ng-template>
+</div>
+
+<!-- Boolean that says not to show content before hasData variable is true -->
+<div *ngIf="hasData">
+
+    <!-- Checking if there are any reviews, if not ng-template will be rendered -->
+    <div *ngIf="hasReviews; else hasNoReviews">
+
+        <!-- Looping through reviews -->
+        <div *ngFor="let review of getReviews()" class="bg-white review-box">
+
+            <!-- User information (image, name and number of reviews) -->
+            <div class="clearfix pb-1">
+                <div class="float-left mr-3">
+                    <img src="../../../assets/usericon.png" alt="user" style="width:60px;"/>
+                </div>
+                <div class="">
+                    <p class="m-0">{{ getUser(review.user).name }}</p>
+                    <p>{{ getUser(review.user).reviews.length }} reviews</p>
+                </div>
+            </div>
+
+            <!-- Line separating user content from review content -->
+            <hr>
+
+            <!-- Review content -->
+            <div>
+                <h2>{{ review.title }}</h2>
+                <p>Review on <a routerLink="/websites/{{ review.website }}">{{ getWebsite(review.website).domain }}</a>
+                    <span class="visit-website ml-2"><a href="http://{{ getWebsite(review.website).domain }}" target="_blank">Visit the website</a></span>
+                </p>
+                <p>{{ review.review }}</p>
+                <p><b>Score:</b> {{ review.score }} out of 5</p>
+            </div>
+
+            <!-- Line separating review content from date -->
+            <hr>
+
+            <!-- Date of review -->
+            <div>
+                <p class="text-right review-date">{{ setDateUI(review.timeOfReview)}}</p>
+            </div>
+
+        </div> <!-- End of review loop -->
+
+        <!-- This should only be shown on frontpage -->
+        <div *ngIf="homeParent === 1 && hasReviews">
+            <a routerLink="/reviews">See all reviews</a>
+        </div>
+
+    </div> <!-- End of nfIf hasReviews -->
+
+    <!-- If no reviews this is shown -->
+    <ng-template #hasNoReviews>
+        <p>No reviews yet</p>
+    </ng-template>
+
+</div> <!-- End of hasData -->

@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  background-color: #fafafa!important;
+}
+a:link, a:visited, a:active {
+  color: #f4a12e;
+  text-decoration: underline;
+}
+a:hover {
+    color: #af4e0e!important;
+}
+
+.navbar-nav .nav-item a:link, .navbar-nav .nav-item a:visited, .navbar-nav .nav-item a:active {
+  color: white;
+  padding: 0 1em;
+  text-decoration: none;
+}

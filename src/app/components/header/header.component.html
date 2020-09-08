@@ -1,0 +1,17 @@
+<!-- Boolean that says not to show content before hasData variable is true -->
+<div *ngIf="hasData">
+
+    <!-- Header template -->
+    <header class="mt-4">
+        <div *ngIf="wantHeadingOne">
+            <app-heading-one [headingOne]="headline"></app-heading-one>
+        </div>
+        <div *ngIf="wantHeadingTwo">
+            <app-heading-two [headingTwo]="headline"></app-heading-two>
+        </div>
+        <div *ngIf="wantParagraph">
+            <p>{{ paragraph }}</p>
+        </div>
+    </header>
+
+</div>

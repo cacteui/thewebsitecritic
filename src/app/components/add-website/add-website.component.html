@@ -1,0 +1,32 @@
+<!-- Header for add website through child components -->
+<app-header [wantHeadingTwo]="true" [headline]="headline"></app-header>
+
+<!-- If website was added this is shown -->
+<div *ngIf="hasAddedWebsite" class="my-3">
+    <p><b>You added a website. Want to add one more?</b></p>
+</div>
+
+<!-- Form using the special method that sends all values in one object onSubmit -->
+<form #addWebsiteForm="ngForm" (submit)="onSubmit(addWebsiteForm)" class="mt-4">
+
+    <!-- Website domain -->
+    <div class="row my-2">
+        <label class="col-2 text-right">Website domain</label>
+        <input class="col-10" type="text" name="domain" placeholder="www.domain.com" ngModel>
+    </div>
+
+    <!-- Description -->
+    <div class="row my-2">
+        <label class="col-2 text-right">Description</label>
+        <textarea class="col-10" cols="10" name="description" ngModel></textarea>
+    </div>
+
+    <!-- Submit button -->
+    <button type="submit" class="mt-2 offset-2 col-10">Add website</button>
+
+</form>
+
+<!-- If form has null values this message should show -->
+<div *ngIf="hasNullValues" class="mt-4 text-center">
+    <p><b>Please fill out all of the fields.</b></p>
+</div>
